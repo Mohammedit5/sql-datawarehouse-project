@@ -1,13 +1,7 @@
-/*
-===============================================================================
-DDL Script: Create Bronze Tables
-===============================================================================
-Script Purpose:
-    This script creates tables in the 'bronze' schema, dropping existing tables 
-    if they already exist.
-	  Run this script to re-define the DDL structure of 'bronze' Tables
-===============================================================================
-*/
+
+-- DDL Script: Create Bronze Tables
+
+-- creating the first-table
 
 IF OBJECT_ID('bronze.crm_cust_info', 'U') IS NOT NULL
     DROP TABLE bronze.crm_cust_info;
@@ -22,6 +16,8 @@ CREATE TABLE bronze.crm_cust_info (
     cst_gndr            NVARCHAR(50),
     cst_create_date     DATE
 );
+
+-- creating the second-table
 GO
 
 IF OBJECT_ID('bronze.crm_prd_info', 'U') IS NOT NULL
@@ -37,6 +33,8 @@ CREATE TABLE bronze.crm_prd_info (
     prd_start_dt DATETIME,
     prd_end_dt   DATETIME
 );
+
+-- creating the thrid-table
 GO
 
 IF OBJECT_ID('bronze.crm_sales_details', 'U') IS NOT NULL
@@ -55,7 +53,7 @@ CREATE TABLE bronze.crm_sales_details (
     sls_price    INT
 );
 GO
-
+-- creating the first-table in erp-source
 IF OBJECT_ID('bronze.erp_loc_a101', 'U') IS NOT NULL
     DROP TABLE bronze.erp_loc_a101;
 GO
@@ -64,6 +62,9 @@ CREATE TABLE bronze.erp_loc_a101 (
     cid    NVARCHAR(50),
     cntry  NVARCHAR(50)
 );
+
+-- creating the second-table in erp-source
+
 GO
 
 IF OBJECT_ID('bronze.erp_cust_az12', 'U') IS NOT NULL
@@ -76,6 +77,7 @@ CREATE TABLE bronze.erp_cust_az12 (
     gen    NVARCHAR(50)
 );
 GO
+-- creating the thrid-table in erp-source
 
 IF OBJECT_ID('bronze.erp_px_cat_g1v2', 'U') IS NOT NULL
     DROP TABLE bronze.erp_px_cat_g1v2;
